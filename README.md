@@ -23,7 +23,7 @@ SecureVision SOC Console is a Security Operations Center (SOC) Alert Management 
 - Chart.js
 
   
-## 🚀 Installation
+##  Installation
 
 ### 1. Clone the Repository
 
@@ -57,7 +57,7 @@ http://127.0.0.1:5000
 
 ---
 
-## 🌍 Online Version
+##  Online Version
 
 The live deployed application is available at:
 
@@ -65,7 +65,7 @@ The live deployed application is available at:
 
 ---
 
-## 📚 Future Enhancements
+##  Future Enhancements
 
 - User Authentication
 - Email Notifications
@@ -75,7 +75,7 @@ The live deployed application is available at:
 
 ---
 
-## 👩‍💻 Developer
+##  Developer
 
 **Vedhalakshmi A**
 
@@ -84,7 +84,7 @@ https://github.com/vedha-25-git
 
 ---
 
-## ⭐ Support
+##  Support
 
 If you like this project, consider giving it a ⭐ on GitHub!
 
