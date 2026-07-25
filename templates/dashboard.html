@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <center>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVision SOC Console</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>🛡️ SecureVision SOC Console</h1>
+    </div>
+    <div class="summary">
+    <h2>Security Operations Center Overview</h2>
+    <p>
+        Monitor alerts, manage incidents,
+        analyze threats, and track security events
+        through a centralized dashboard.
+    </p>
+</div>
+
+    <div class="cards">
+
+        <div class="card critical">
+            <h2>{{critical_count}}</h2>
+            <p>Critical Alerts</p>
+        </div>
+
+        <div class="card high">
+            <h2>{{high_count}}</h2>
+            <p>High Alerts</p>
+        </div>
+
+        <div class="card medium">
+            <h2>{{medium_count}}</h2>
+            <p>Medium Alerts</p>
+        </div>
+
+        <div class="card low">
+            <h2>{{low_count}}</h2>
+            <p>Low Alerts</p>
+        </div>
+
+    </div>
+    <div class="charts">
+
+    <div class="chart-box">
+        <canvas id="severityChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="statusChart"></canvas>
+    </div>
+
+</div>
+    <div class="form-container">
+
+    <h2>Add New Alert</h2>
+
+    <form action="/add" method="POST">
+
+        <input type="text"
+               name="alert_name"
+               placeholder="Alert Name"
+               required>
+
+        <select name="severity">
+
+            <option>Critical</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+
+        </select>
+
+        <select name="status">
+
+            <option>Open</option>
+            <option>Investigating</option>
+            <option>Resolved</option>
+
+        </select>
+
+        <button type="submit">
+            Add Alert
+        </button>
+
+    </form>
+
+</div>
+<form method="GET">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search Alerts">
+
+    <select name="severity">
+
+        <option value="">All Severities</option>
+        <option value="Critical">Critical</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+
+    </select>
+
+    <button type="submit">
+        Filter
+    </button>
+
+</form>
+
+
+    <div class="table-container">
+        <h2>Recent Security Alerts</h2>
+
+        <table>
+            <tr>
+                <th>Alert ID</th>
+                <th>Alert Name</th>
+                <th>Severity</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            {% for alert in alerts %}
+<tr>
+    <td>{{ alert[0] }}</td>
+    <td>{{ alert[1] }}</td>
+    <td>{{ alert[2] }}</td>
+    <td>
+
+{% if alert[3] == 'Open' %}
+<span class="status-open">
+    Open
+</span>
+
+{% elif alert[3] == 'Investigating' %}
+<span class="status-investigating">
+    Investigating
+</span>
+
+{% else %}
+<span class="status-resolved">
+    Resolved
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a href="/update_status/{{ alert[0] }}/Open">
+    Open
+</a>
+
+|
+
+<a href="/update_status/{{ alert[0] }}/Investigating">
+    Investigating
+</a>
+
+|
+
+<a href="/update_status/{{ alert[0] }}/Resolved">
+    Resolved
+</a>
+|
+
+<a href="/delete/{{ alert[0] }}"
+   onclick="return confirm('Delete this alert?')">
+   Delete
+</a>
+
+</td>
+</tr>
+{% endfor %}
+
+            
+            </table>
+    </div>
+</center>
+<script>
+
+new Chart(
+document.getElementById('severityChart'),
+{
+    type:'bar',
+
+    data:{
+        labels:['Critical','High','Medium','Low'],
+
+        datasets:[{
+            label:'Alerts',
+
+            data:[
+                {{ critical_count }},
+                {{ high_count }},
+                {{ medium_count }},
+                {{ low_count }}
+            ]
+        }]
+    }
+});
+
+new Chart(
+document.getElementById('statusChart'),
+{
+    type:'pie',
+
+    data:{
+        labels:[
+            'Open',
+            'Investigating',
+            'Resolved'
+        ],
+
+        datasets:[{
+            data:[
+                {{ open_count }},
+                {{ investigating_count }},
+                {{ resolved_count }}
+            ]
+        }]
+    }
+});
+
+</script>
+<footer>
+    <p>SecureVision SOC Console | Developed by Vedha Lakshmi</p>
+</footer>
+</body>
+</html>

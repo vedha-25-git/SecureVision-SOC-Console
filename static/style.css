@@ -1,0 +1,206 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+.navbar{
+    background:#111827;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 0 10px cyan;
+}
+
+.cards{
+    display:flex;
+    justify-content:space-around;
+    margin:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:200px;
+    padding:20px;
+    margin:10px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    transition:0.3s;
+}
+
+.critical{
+    background:#dc2626;
+}
+
+.high{
+    background:#ea580c;
+}
+
+.medium{
+    background:#ca8a04;
+}
+
+.low{
+    background:#16a34a;
+}
+
+.table-container{
+    margin:30px;
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #334155;
+}
+
+th{
+    background:#111827;
+}
+.form-container{
+    margin:30px;
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+}
+
+.form-container input,
+.form-container select{
+    padding:10px;
+    margin:10px;
+    border:none;
+    border-radius:8px;
+}
+
+.form-container button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+form{
+    margin:20px;
+}
+
+form input{
+    padding:10px;
+    width:250px;
+    border-radius:8px;
+    border:none;
+}
+
+form button{
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+a{
+    text-decoration:none;
+    color:cyan;
+    font-weight:bold;
+}
+
+a:hover{
+    color:white;
+}
+.delete-btn{
+    color:red;
+}
+.status-open{
+    background:red;
+    padding:5px 10px;
+    border-radius:10px;
+}
+
+.status-investigating{
+    background:orange;
+    padding:5px 10px;
+    border-radius:10px;
+}
+
+.status-resolved{
+    background:green;
+    padding:5px 10px;
+    border-radius:10px;
+}
+.charts{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    margin:30px;
+}
+
+.chart-box{
+    width:500px;
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    margin:10px;
+}
+/* Mobile Responsive Design */
+
+@media screen and (max-width: 768px){
+
+    .cards{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card{
+        width: 90%;
+    }
+
+    .charts{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chart-box{
+        width: 90%;
+    }
+
+    table{
+        font-size: 12px;
+    }
+
+    .form-container input,
+    .form-container select,
+    .form-container button{
+        width: 100%;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+
+    form input,
+    form select,
+    form button{
+        width: 100%;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+}
+tr:hover{
+    background:#334155;
+}
+.summary{
+    text-align:center;
+    padding:20px;
+    margin:20px;
+    background:#1e293b;
+    border-radius:15px;
+}
