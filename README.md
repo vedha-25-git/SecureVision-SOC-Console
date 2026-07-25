@@ -22,21 +22,72 @@ SecureVision SOC Console is a Security Operations Center (SOC) Alert Management 
 - JavaScript
 - Chart.js
 
-## Installation
+  
+## 🚀 Installation
 
-1. Install Python
-2. Install Flask
+### 1. Clone the Repository
 
-pip install flask
+```bash
+git clone https://github.com/vedha-25-git/SecureVision-SOC-Console.git
+```
 
-3. Run the application
+### 2. Navigate to the Project
 
+```bash
+cd SecureVision-SOC-Console
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Application
+
+```bash
 python app.py
+```
 
-4. Open
+### 5. Open in Browser
 
+```
 http://127.0.0.1:5000
+```
 
-## Developer
+---
+
+## 🌍 Online Version
+
+The live deployed application is available at:
+
+**https://securevision-soc-console.onrender.com**
+
+---
+
+## 📚 Future Enhancements
+
+- User Authentication
+- Email Notifications
+- Export Reports (PDF/CSV)
+- Role-Based Access Control
+- Cloud Database Integration
+
+---
+
+## 👩‍💻 Developer
+
+**Vedhalakshmi A**
+
+GitHub:
+https://github.com/vedha-25-git
+
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub!
+
+
 
 Vedha Lakshmi
