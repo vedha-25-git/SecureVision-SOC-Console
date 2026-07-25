@@ -84,10 +84,3 @@ https://github.com/vedha-25-git
 
 ---
 
-##  Support
-
-If you like this project, consider giving it a ⭐ on GitHub!
-
-
-
-Vedha Lakshmi
